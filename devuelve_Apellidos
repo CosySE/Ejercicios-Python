@@ -1,0 +1,22 @@
+#Programar una función que imprima 
+#los apellidos de una persona dado su nombre completo
+
+def valida(cadena):#funcion para guardar el resultado de alpha  y el valor introducido separadao
+    lista_bool=[]
+    lista_cadena = cadena.split()
+    for i in lista_cadena:
+        i = i.isalpha()
+        lista_bool.append(i)
+        
+    return lista_bool, lista_cadena
+
+def imprime_apellido():# en este caso el usuario entra todos los datos
+    nombre_completo = input('Introduzca su nombre y apellidos completos\n')
+    lista_bool, lista_nombre = valida(nombre_completo)
+    if False in lista_bool or len(lista_nombre)<=2:# descartamos que no tenga numeros y que tenga los dos apellidos 
+        print('Por favor no introduzca numeros y ponga sus apellidos completos')
+        imprime_apellido()
+    else:
+        var = lista_nombre[-2:]
+        print(' '.join([str(v) for v in var]))#la funcion join para pasarle un iterador como parametro y me convierte cada elemento en sting y me lo concatena
+imprime_apellido()
