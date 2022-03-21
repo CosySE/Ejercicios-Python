@@ -1,6 +1,6 @@
 import sqlite3
 
-from numpy import insert
+
 
 def insertar(db,elemento):
     db.execute('insert into almacen (a1,i1) values(?,?)',(elemento['a1'],elemento['i1']))
